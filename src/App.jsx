@@ -1,7 +1,4 @@
 import { expenses } from "./expenses"
-const fs = require("fs")
-
-console.log(fs)
 
 function App() {
   return (
@@ -11,7 +8,7 @@ function App() {
       </header>
 
       <main className="px-5 flex flex-col items-center">
-        <div className="w-full md:w-3/4 mb-10">
+        <div className="w-full md:w-2/4 mb-10">
           <div className="border-2 border-slate-600 rounded-lg py-4 px-6 mb-5">
             <p className="text-sm">Total gastado este mes:</p>
             <h2 className="text-4xl font-bold">$650.000</h2>
@@ -30,6 +27,18 @@ function App() {
                 type="text"
                 placeholder="Ingresa título del gasto"
               />
+              <select
+                name="select"
+                id=""
+                className="h-10 border-slate-600 rounded-lg px-5 border-2 bg-slate-700 text-slate-200 focus:outline-none focus:ring focus:ring-orange-600"
+              >
+                <option>Supermercado</option>
+                <option>Feria</option>
+                <option>Comida a domicilio</option>
+                <option>Drogas</option>
+                <option>Cariñosas</option>
+                <option>Ofrendas a la iglesia</option>
+              </select>
               <textarea
                 className="h-20 border-slate-600 rounded-lg px-5 pt-2 mb-4 border-2 bg-slate-700 text-slate-200 focus:outline-none focus:ring focus:ring-orange-600"
                 placeholder="Descripción del gasto"
@@ -44,24 +53,24 @@ function App() {
           </form>
         </div>
 
-        <div className="flex flex-col items-center gap-5">
+        <div className="w-full md:w-2/4 flex flex-col gap-5">
           {expenses.map(({ id, title, description, date, amount }) => (
             <ul key={id}>
               <li>
-                <div className="border-2 p-5 rounded-lg border-slate-600 flex gap-5 md:w-3/4">
-                  <div>
+                <div className="border-2 p-5 rounded-lg border-slate-600 flex gap-5">
+                  <div className="w-1/4 flex justify-end">
                     <img
                       src="https://picsum.photos/80/80"
-                      className="rounded-full"
+                      className="rounded-full w-16 h-16"
                       alt=""
                     />
                   </div>
-                  <div className="w-2/3">
+                  <div className="w-2/4">
                     <h3 className="text-xl font-bold mb-2">{title}</h3>
                     <p className="text-sm mb-2 ">{description}</p>
                     <p className="text-xs text-slate-400">{date}</p>
                   </div>
-                  <div className="text-xl w-1/3 font-bold flex items-center">
+                  <div className="w-1/4 text-xl font-bold flex items-center justify-center">
                     <p>${amount}</p>
                   </div>
                 </div>
